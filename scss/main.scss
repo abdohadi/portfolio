@@ -1,0 +1,215 @@
+@import 'config';
+@import 'menu';
+
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: $primary-color;
+    color: set-text-color($primary-color);
+    height: 100%;
+    margin: 0;
+    line-height: 1.5;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    &#bg-img {
+        @include background;
+        overflow: hidden;
+    }
+}
+
+// headings
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: 400;
+    &.lg-heading {
+        font-size: 9rem !important;
+    }
+    &.sm-heading {
+        font-size: 27px;
+        padding: 1rem 2rem;
+        background: rgba(lighten($primary-color, 2), 0.5);
+        margin-bottom: 2rem;
+    }
+}
+
+a {
+    color: set-text-color($primary-color);
+    text-decoration: none !important;
+}
+
+
+.text-secondary {
+    color: $secondary-color;
+}
+
+header {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+}
+
+main {
+    padding: 4rem;
+    // height: 100%;
+    .icons {
+        margin-top: 1rem;
+        a {
+            padding: 0.4rem;
+            &:hover {
+                @include easeOut;
+                color: $secondary-color;
+            }
+        }
+    }
+    &#home {
+        overflow: hidden;
+        h1 {
+            margin-top: 20vh;
+        }
+        h2 {
+            border: 1px solid rgb(112, 112, 112);
+            max-width: 700px;
+        }
+    }
+    &#about {
+        padding: 1rem 3rem;
+    }
+    &#work {
+        padding: 1rem 3rem;
+    }
+}
+
+// about page
+main#about {
+    .about-info {
+        margin-bottom: 2rem;
+        padding: 10px;
+        overflow: hidden;
+        .about-img {
+            text-align: center;
+            float: left;
+            width: 39.2%;
+            margin-right: 2%;
+            img {
+                width: 80%;
+                height: 80%;
+                max-width: 250px;
+                max-height: 250px;
+                border-radius: 50%;
+                border: 3px solid $secondary-color;
+            }
+        }
+        .bio {
+            float: left;
+            width: 58.8%;
+            h3 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .jobs {
+        overflow: hidden;
+        .job {
+            background: lighten($primary-color, 5);
+            padding: 20px 10px 10px;
+            float: left;
+            width: 31.33%;
+            border-bottom: 5px solid $secondary-color;
+            margin-bottom: 1.5rem;
+            &:not(:last-of-type) {
+                margin-right: 3%;
+            }
+            h3,
+            h6 {
+                text-align: center;
+            }
+        }
+    }
+}
+
+main#work {
+    .projects {
+        overflow: hidden;
+        .item {
+            margin-bottom: 1.5rem;
+            img {
+                border: 3px solid #fff;
+                width: 100%;
+                &:hover {
+                    opacity: .7;
+                    border-color: $secondary-color;
+                    @include easeOut;
+                }
+            }
+        }
+    }
+}
+
+.boxes {
+    text-align: center;
+    overflow: hidden;
+    div {
+        margin-top: 6rem;
+    }
+    .box {
+        text-align: center;
+        padding: 1.5rem 2rem;
+        min-width: 200px;
+        max-width: 400px;
+        font-size: 2rem;
+        margin: auto;
+        border: 2px solid #fff;
+        @include easeOut;
+        &:hover {
+            padding: 1rem 1rem;
+            background-color: $secondary-color;
+            color: set-text-color($secondary-color);
+            .text-secondary {
+                color: set-text-color($secondary-color);
+            }
+        }
+    }
+}
+
+// button style
+.btn {
+    padding: 0.5rem 1rem;
+    display: block;
+    border: 0;
+    margin-bottom: .3rem;
+    border: 1px solid #fff;
+    @include easeOut;
+    &:hover {
+        border: 1px solid $secondary-color;
+    }
+}
+.btn-light {
+    @extend .btn;
+    background: lighten($primary-color, 50);
+    color: #333;
+    &:hover {
+        color: #333;
+    }
+}
+.btn-dark {
+    @extend .btn;
+    background: darken($primary-color, 50);
+    &:hover {
+        color: #fff;
+    }
+}
+
+footer {
+    text-align: center;
+    background-color: darken($primary-color, 10);
+    color: text-set-color($primary-color);
+    padding: 1rem;
+}
+
+@import 'mobile';
